@@ -7,7 +7,8 @@
   "author": "Curtion <curtion@126.com>",
   "license": "MIT",
   "dependencies": {
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
