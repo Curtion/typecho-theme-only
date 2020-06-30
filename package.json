@@ -6,6 +6,9 @@
   "repository": "git@github.com:Curtion/typecho-theme-only.git",
   "author": "Curtion <curtion@126.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack --config ./script/webpack.prod.js"
+  },
   "dependencies": {
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
