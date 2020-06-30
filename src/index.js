@@ -1,4 +1,2 @@
-let func = (name) => {
-  console.log(name)
-}
-func('张三')
+let a = 1
+console.log(a)
