@@ -1,2 +1,5 @@
-let a = 1
-console.log(a)
+import Vue from 'vue'
+import App from './app.vue'
+new Vue({
+  render: h => h(App)
+}).$mount("#app")
