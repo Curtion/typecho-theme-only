@@ -14,7 +14,7 @@
     "axios": "^0.21.1",
     "highlight.js": "^10.4.1",
     "latex.js": "^0.12.4",
-    "marked": "^1.1.1",
+    "marked": "^2.0.0",
     "nprogress": "^0.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
