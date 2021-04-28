@@ -1,0 +1,27 @@
+{
+  "name": "typecho-theme-only",
+  "version": "1.0.0",
+  "description": "Typecho主题",
+  "main": "index.js",
+  "repository": "git@github.com:Curtion/typecho-theme-only.git",
+  "author": "Curtion <curtion@126.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development gulp",
+    "build": "cross-env NODE_ENV=production gulp"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.16.2",
+    "autoprefixer": "^10.2.5",
+    "cross-env": "^7.0.3",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-inject": "^5.0.5",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "postcss": "^8.2.13",
+    "prettier": "^2.2.1",
+    "tailwindcss": "^2.1.2"
+  }
+}
