@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<?php
+/**
+ * Only
+ *
+ * @package Only
+ * @author Curtion
+ * @version 1.0.0
+ * @link https://blog.3xgk.net
+ */
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <!-- inject:css -->
-  <!-- endinject -->
-</head>
+if (!defined('__TYPECHO_ROOT_DIR__')) {
+    exit();
+}
+$this->need('header.php');
+?>
 
-<body>
-  
-</body>
+<div id="main">
+</div>
 
-</html>
+<?php $this->need('footer.php');
+?>
