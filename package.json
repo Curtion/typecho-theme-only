@@ -19,8 +19,8 @@
     "gulp-csso": "^4.0.1",
     "gulp-inject": "^5.0.5",
     "gulp-postcss": "^9.0.0",
-    "gulp-sass": "^4.1.0",
     "postcss": "^8.2.13",
+    "postcss-import": "^14.0.1",
     "prettier": "^2.2.1",
     "tailwindcss": "^2.1.2"
   }
