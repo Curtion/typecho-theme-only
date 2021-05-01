@@ -9,18 +9,22 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const commonjs = require('@rollup/plugin-commonjs')
 const { terser } = require('rollup-plugin-terser')
 const { babel } = require('@rollup/plugin-babel')
+const livereload = require('gulp-livereload')
 
-function cleanDist() {
-  // 清理dist文件夹
-  return gulp.src('./src/dist/*', { read: false }).pipe(clean())
-}
-
-function dev() {
+function dev(cb) {
   // 开发模式
+  livereload.listen()
   watch(['./src/**/*.css', '!./src/dist/**/*'], buildCSS)
   watch(['./src/template/header.php'], injectCSS)
   watch(['./src/**/*.js', '!./src/dist/**/*'], buildJS)
   watch(['./src/template/footer.php'], injectJS)
+  watch(['./src/**/*.php', '!./src/template/header.php', '!./src/template/footer.php', '!./src/dist/**/*'], copyFile)
+  cb()
+}
+
+function cleanDist() {
+  // 清理dist文件夹
+  return gulp.src('./src/dist/*', { read: false }).pipe(clean())
 }
 
 function buildCSS() {
@@ -31,6 +35,7 @@ function buildCSS() {
     .pipe(postcss([tailwindcss('./tailwind.config.js'), require('autoprefixer'), require('postcss-import')]))
     .pipe(csso())
     .pipe(gulp.dest('./src/dist/css/'))
+    .pipe(livereload())
 }
 
 function injectCSS() {
@@ -48,6 +53,7 @@ function injectCSS() {
       })
     )
     .pipe(gulp.dest('./src/dist'))
+    .pipe(livereload())
 }
 
 async function buildJS() {
@@ -61,6 +67,7 @@ async function buildJS() {
     format: 'cjs',
     sourcemap: true,
   })
+  livereload()
 }
 
 function injectJS() {
@@ -78,16 +85,16 @@ function injectJS() {
       })
     )
     .pipe(gulp.dest('./src/dist'))
+    .pipe(livereload())
 }
 
 function copyFile() {
   // 拷贝文件
-  return gulp.src(['./src/template/*', '!./src/template/header.php', '!./src/template/footer.php']).pipe(gulp.dest('./src/dist'))
+  return gulp.src(['./src/template/*', '!./src/template/header.php', '!./src/template/footer.php']).pipe(gulp.dest('./src/dist')).pipe(livereload())
 }
 
 if (process.env.NODE_ENV === 'production') {
   exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyFile)
 } else if (process.env.NODE_ENV === 'development') {
-  dev()
-  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyFile)
+  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyFile, dev)
 }

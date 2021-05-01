@@ -15,6 +15,7 @@ $this->need('header.php');
 ?>
 
 <div id="main">
+
 </div>
 
 <?php $this->need('footer.php');
