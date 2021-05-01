@@ -4,8 +4,11 @@ const inject = require('gulp-inject')
 const clean = require('gulp-clean')
 const postcss = require('gulp-postcss')
 const csso = require('gulp-csso')
-const uglify = require('gulp-uglify')
-const rollup = require('gulp-rollup')
+const rollup = require('rollup')
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
+const commonjs = require('@rollup/plugin-commonjs')
+const { terser } = require('rollup-plugin-terser')
+const { babel } = require('@rollup/plugin-babel')
 
 function cleanDist() {
   // 清理dist文件夹
@@ -47,20 +50,17 @@ function injectCSS() {
     .pipe(gulp.dest('./src/dist'))
 }
 
-function buildJS() {
+async function buildJS() {
   // 构建JS
-  return gulp
-    .src('./src/index.js')
-    .pipe(
-      rollup({
-        input: './src/index.js',
-        output: {
-          format: 'cjs',
-        },
-      })
-    )
-    .pipe(uglify())
-    .pipe(gulp.dest('./src/dist/js'))
+  const bundle = await rollup.rollup({
+    input: './src/index.js',
+    plugins: [nodeResolve(), commonjs(), terser(), babel({ babelHelpers: 'runtime' })],
+  })
+  await bundle.write({
+    file: './src/dist/js/index.js',
+    format: 'cjs',
+    sourcemap: true,
+  })
 }
 
 function injectJS() {
