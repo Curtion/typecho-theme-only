@@ -18,7 +18,7 @@ function dev(cb) {
   watch(['./src/template/header.php'], injectCSS)
   watch(['./src/**/*.js', '!./src/dist/**/*'], buildJS)
   watch(['./src/template/footer.php'], injectJS)
-  watch(['./src/**/*.php', '!./src/template/header.php', '!./src/template/footer.php', '!./src/dist/**/*'], copyFile)
+  watch(['./src/**/*.php', '!./src/template/header.php', '!./src/template/footer.php', '!./src/dist/**/*'], copyPHP)
   cb()
 }
 
@@ -88,13 +88,18 @@ function injectJS() {
     .pipe(livereload())
 }
 
-function copyFile() {
-  // 拷贝文件
+function copyPHP() {
+  // 拷贝php文件
   return gulp.src(['./src/template/*', '!./src/template/header.php', '!./src/template/footer.php']).pipe(gulp.dest('./src/dist')).pipe(livereload())
 }
 
+function copyFont() {
+  // 拷贝字体文件
+  return gulp.src(['./src/css/font-awesome-4.7.0/fonts/**/*']).pipe(gulp.dest('./src/dist/fonts'))
+}
+
 if (process.env.NODE_ENV === 'production') {
-  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyFile)
+  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyPHP, copyFont)
 } else if (process.env.NODE_ENV === 'development') {
-  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyFile, dev)
+  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyPHP, copyFont, dev)
 }
