@@ -1,4 +1,13 @@
 @import url('./font-awesome-4.7.0/css/font-awesome.min.css');
+@import url('./customize.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .btn-menu-list {
+    @apply flex items-center h-12 w-4/5 m-auto text-xl px-10 mt-2 mb-2 rounded-xl hover:bg-gray-100 text-black text-opacity-80;
+  }
+  .active {
+    @apply bg-red-500 hover:bg-red-500 shadow-lg text-white text-opacity-80;
+  }
+}

@@ -10,46 +10,46 @@
         <div class="flex justify-around mt-3">
             <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
             <div class="flex flex-col items-center">
-                <span class="text-xl ">文章</span>
+                <span class="text-lg text-black text-opacity-80">文章</span>
                 <span class="text-base text-black text-opacity-20">
-                    <?php $stat->publishedPostsNum() ?>
+                    <?php $stat->publishedPostsNum(); ?>
                 </span>
             </div>
             <div class="flex flex-col items-center">
-                <span class="text-xl ">标签</span>
+                <span class="text-lg  text-black text-opacity-80">标签</span>
                 <span class="text-base text-black text-opacity-20">
-                    <?php echo tagsNum() ?>
+                    <?php echo tagsNum(); ?>
                 </span>
             </div>
             <div class="flex flex-col items-center">
-                <span class="text-xl ">分类</span>
+                <span class="text-lg text-black text-opacity-80">分类</span>
                 <span class="text-base text-black text-opacity-20">
-                    <?php $stat->categoriesNum() ?>
+                    <?php $stat->categoriesNum(); ?>
                 </span>
             </div>
         </div>
-        <ul class="">
-            <a class="<?php if($this->is('index')): ?>active <?php endif; ?>" href="<?php $this->options->siteUrl(); ?>"
+        <ul class="py-5">
+            <a class="<?php if ($this->is('index')): ?>active <?php endif; ?> btn-menu-list" href="<?php $this->options->siteUrl(); ?>"
                 title="回到首页">
-                <i class="fa fa-home"></i>
-                <div class="">首页</div>
+                <i class="fa fa-home w-6"></i>
+                <div class="w-full pl-5">首页</div>
             </a>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-            <?php while($pages->next()): ?>
-            <a class="<?php if($this->is('page', $pages->slug)): ?>active <?php endif; ?>"
+            <?php while ($pages->next()): ?>
+            <a class="<?php if ($this->is('page', $pages->slug)): ?>active <?php endif; ?> btn-menu-list"
                 href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>">
-                <i class=""></i>
-                <div class="">
+                <i class="fa fa-list w-6"></i>
+                <div class="w-full pl-5">
                     <?php $pages->title(); ?>
                 </div>
             </a>
             <?php endwhile; ?>
-            <?php if($this->user->hasLogin()):?>
-            <a class="" href="<?php $this->options->siteUrl(); ?>admin" title="后台管理" target="_blank">
-                <i class=""></i>
-                <div class="">后台管理</div>
+            <?php if ($this->user->hasLogin()): ?>
+            <a class="btn-menu-list" href="<?php $this->options->siteUrl(); ?>admin" title="后台管理" target="_blank">
+                <i class="fa fa-cog w-6"></i>
+                <div class="w-full pl-5">后台管理</div>
             </a>
-            <?php endif;?>
+            <?php endif; ?>
         </ul>
     </div>
 </nav>

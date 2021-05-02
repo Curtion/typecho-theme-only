@@ -9,6 +9,16 @@
           "url": "https://tailwindcss.com/docs/functions-and-directives/#tailwind"
         }
       ]
+    },
+    {
+      "name": "@layer",
+      "description": "TailwindCSS rule layer",
+      "references": [
+        {
+          "name": "Tailwind’s “Functions & Directives” documentation",
+          "url": "https://tailwindcss.com/docs/functions-and-directives/#tailwind"
+        }
+      ]
     }
   ]
 }
