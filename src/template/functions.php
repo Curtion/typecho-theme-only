@@ -87,4 +87,82 @@ function get_last_update()
         echo Typecho_I18n::dateWord($update['modified'], $now);
     }
 }
+
+// 标签云随机颜色
+function randomColor()
+{
+    $color = ['bg-yellow-200', 'bg-blue-200', 'bg-gray-200', 'bg-green-200', 'bg-indigo-200', 'bg-purple-200', 'bg-pink-200'];
+    $hoverColor = ['bg-yellow-400', 'bg-blue-400', 'bg-gray-400', 'bg-green-400', 'bg-indigo-400', 'bg-purple-400', 'bg-pink-400'];
+    return $color[array_rand($color, 1)] . ' hover:' . $hoverColor[array_rand($color, 1)];
+}
+
+// 字体次数统计
+function artCount($cid)
+{
+    $db = Typecho_Db::get();
+    $rs = $db->fetchRow(
+        $db
+            ->select('table.contents.text')
+            ->from('table.contents')
+            ->where('table.contents.cid=?', $cid)
+            ->order('table.contents.cid', Typecho_Db::SORT_ASC)
+            ->limit(1)
+    );
+    $text = preg_replace('/[^\x{4e00}-\x{9fa5}]/u', '', $rs['text']);
+    return mb_strlen($text, 'UTF-8');
+}
+
+// 文章阅读数量
+function post_view($archive)
+{
+    $cid = $archive->cid;
+    $db = Typecho_Db::get();
+    $prefix = $db->getPrefix();
+    if (!array_key_exists('viewsNum', $db->fetchRow($db->select()->from('table.contents')))) {
+        $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `viewsNum` INT(10) DEFAULT 0;');
+        echo 0;
+        return;
+    }
+    $row = $db->fetchRow(
+        $db
+            ->select('viewsNum')
+            ->from('table.contents')
+            ->where('cid = ?', $cid)
+    );
+    if ($archive->is('single')) {
+        $views = Typecho_Cookie::get('extend_contents_viewsNum');
+        if (empty($views)) {
+            $views = [];
+        } else {
+            $views = explode(',', $views);
+        }
+        if (!in_array($cid, $views)) {
+            $db->query(
+                $db
+                    ->update('table.contents')
+                    ->rows(['viewsNum' => (int) $row['viewsNum'] + 1])
+                    ->where('cid = ?', $cid)
+            );
+            array_push($views, $cid);
+            $views = implode(',', $views);
+            Typecho_Cookie::set('extend_contents_viewsNum', $views);
+        }
+    }
+    return $row['viewsNum'];
+}
+
+// 发布文章时填写的子字段
+function themeFields($layout)
+{
+    $Cover = new Typecho_Widget_Helper_Form_Element_Textarea('Cover', null, null, '自定义缩略图', '输入缩略图地址');
+    $layout->addItem($Cover);
+}
+
+// 主题设置功能
+function themeConfig($form)
+{
+    // 背景图
+    $background = new Typecho_Widget_Helper_Form_Element_Text('background', null, 'https://nexmoe.com/images/5c3aec85a4343.jpg', '博客默认封面图', '在这里填入一个图片URL地址, 给博客添加一个默认封面图');
+    $form->addInput($background);
+}
 ?>

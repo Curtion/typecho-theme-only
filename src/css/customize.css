@@ -15,9 +15,15 @@
   box-shadow: inset 7px 10px 12px #f0f0f0;
 }
 
+/* 隐藏滚动条 */
 .scrollbar-hidden {
   scrollbar-width: none;
 }
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
+}
+
+.label:before {
+  /* 标签云 */
+  content: '#';
 }
