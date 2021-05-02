@@ -15,7 +15,7 @@ $this->need('header.php');
 $this->need('left.php');
 ?>
 
-<div class="flex-1 px-4">
+<div class="flex-1 px-4 py-2">
     <div class="bg-white rounded-xl shadow-sm">
     测试
     </div>
