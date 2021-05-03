@@ -8,7 +8,6 @@ $this->need('left.php');
 
 <div class="flex-1 px-4 py-2 overflow-auto h-screen">
     <section class="space-y-3">
-        <?php while ($this->next()): ?>
         <div class="bg-white rounded-xl shadow-md">
             <a href="<?php $this->permalink(); ?>" class="black">
                 <div class=""> 
@@ -32,7 +31,6 @@ $this->need('left.php');
                 <?php $this->content(); ?>
             </article>
         </div>
-        <?php endwhile; ?>
     </section>
 </div>
 
