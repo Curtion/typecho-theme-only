@@ -22,12 +22,31 @@
         </div>
     </div>
     <div class="bg-white rounded-lg shadow-sm">
+        <div class="flex justify-center items-center mb-1 h-8 text-xl text-black text-opacity-60 border-b border-green-400">最新评论</div>
+        <div class="py-2 px-2">
+            <?php
+            $this->widget('Widget_Comments_Recent', 'ignoreAuthor=true')->to($comments);
+            if ($comments->have()):
+                while ($comments->next()): ?>
+                    <span class="truncate flex">
+                        <span class="comments-author"><?php CommentAuthor($comments); ?></span>
+                        <span>：</span>
+                        <a class="hover:text-red-400 block" href="<?php $comments->permalink(); ?>" title="<?php $comments->text(); ?>">
+                            <?php $comments->text(); ?>
+                        </a>
+                    </span>
+                <?php endwhile;
+            endif;
+            ?>
+        </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm">
         <div class="flex justify-center items-center mb-1 h-8 text-xl text-black text-opacity-60 border-b border-green-400">标签云</div>
         <div class="py-2 flex flex-wrap">
             <?php $this->widget('Widget_Metas_Tag_Cloud', 'sort=mid&ignoreZeroCount=1&desc=0&limit=30')->to($tags); ?>
             <?php if ($tags->have()): ?>
             <?php while ($tags->next()): ?>
-            <a href="<?php $tags->permalink(); ?>" rel="tag" class="tracking-wider label my-1 mx-1 rounded-xl py-1.5 px-2 <?php echo randomColor(); ?>" title="<?php $tags->count(); ?> 个话题">
+            <a href="<?php $tags->permalink(); ?>" rel="tag" class="tracking-wider label my-1 mx-1 rounded-xl py-1.5 px-2 <?php echo randomColor(); ?> text-black text-opacity-70" title="<?php $tags->count(); ?> 个话题">
                 <?php $tags->name(); ?>
             </a>
             <?php endwhile; ?>

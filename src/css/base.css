@@ -4,10 +4,38 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
+  /* 菜单样式 */
   .btn-menu-list {
     @apply flex items-center h-12 w-4/5 m-auto text-xl px-10 mt-2 mb-2 rounded-xl hover:bg-gray-100 text-black text-opacity-80;
   }
+
+  /* 菜单选中样式 */
   .active {
     @apply bg-red-400 hover:bg-red-500 shadow-lg text-white text-opacity-80;
+  }
+
+  /* 文章标签 */
+  .title-label a:nth-child(1) {
+    @apply bg-red-400 rounded-xl py-1 px-2 text-white text-xs;
+  }
+  .title-label a:nth-child(2) {
+    @apply bg-blue-400 rounded-xl py-1 px-2 text-white text-xs;
+  }
+  .title-label a:nth-child(3) {
+    @apply bg-yellow-400 rounded-xl py-1 px-2 text-white text-xs;
+  }
+  .title-label a:nth-child(4) {
+    @apply bg-indigo-400 rounded-xl py-1 px-2 text-white text-xs;
+  }
+  .title-label a:nth-child(5) {
+    @apply bg-purple-400 rounded-xl py-1 px-2 text-white text-xs;
+  }
+  .title-label a:nth-child(n + 6) {
+    @apply bg-pink-400 rounded-xl py-1 px-2 text-white text-xs;
+  }
+
+  /* 最新评论作者样式 */
+  .comments-author a {
+    @apply hover:text-green-400;
   }
 }

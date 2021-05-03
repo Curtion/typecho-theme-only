@@ -60,7 +60,7 @@ async function buildJS() {
   // 构建JS
   const bundle = await rollup.rollup({
     input: './src/index.js',
-    plugins: [nodeResolve(), commonjs(), babel({ babelHelpers: 'runtime' }), terser()],
+    plugins: [babel({ babelHelpers: 'runtime', exclude: 'node_modules/**' }), commonjs(), nodeResolve(), terser()],
   })
   await bundle.write({
     file: './src/dist/js/index.js',

@@ -154,7 +154,7 @@ function post_view($archive)
 // 发布文章时填写的子字段
 function themeFields($layout)
 {
-    $Cover = new Typecho_Widget_Helper_Form_Element_Textarea('Cover', null, null, '自定义缩略图', '输入缩略图地址');
+    $Cover = new Typecho_Widget_Helper_Form_Element_Text('Cover', null, null, '自定义缩略图', '输入缩略图地址');
     $layout->addItem($Cover);
 }
 
@@ -162,7 +162,26 @@ function themeFields($layout)
 function themeConfig($form)
 {
     // 背景图
-    $background = new Typecho_Widget_Helper_Form_Element_Text('background', null, 'https://nexmoe.com/images/5c3aec85a4343.jpg', '博客默认封面图', '在这里填入一个图片URL地址, 给博客添加一个默认封面图');
+    $background = new Typecho_Widget_Helper_Form_Element_Text(
+        'background',
+        null,
+        'https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/compress/5c3aec85a4343.jpg',
+        '博客默认封面图',
+        '在这里填入一个图片URL地址, 给博客添加一个默认封面图'
+    );
     $form->addInput($background);
+}
+
+// 新标签打开评论者网页
+function CommentAuthor($obj, $autoLink = null, $noFollow = null)
+{
+    $options = Helper::options();
+    $autoLink = $autoLink ? $autoLink : $options->commentsShowUrl;
+    $noFollow = $noFollow ? $noFollow : $options->commentsUrlNofollow;
+    if ($obj->url && $autoLink) {
+        echo '<a href="' . $obj->url . '"' . ($noFollow ? ' rel="external nofollow"' : null) . (strstr($obj->url, $options->index) == $obj->url ? null : ' target="_blank"') . '>' . $obj->author . '</a>';
+    } else {
+        echo $obj->author;
+    }
 }
 ?>
