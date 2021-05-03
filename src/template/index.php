@@ -43,6 +43,15 @@ $this->need('left.php');
         </div>
         <?php endwhile; ?>
     </section>
+    <?php $this->pageNav('<', '>', 2, '...', [
+        'wrapTag' => 'nav',
+        'wrapClass' => 'inline-block text-center page-nav mt-3 shadow-md rounded-xl  bg-gray-50',
+        'itemTag' => '',
+        'textTag' => '',
+        'currentClass' => 'bg-red-400',
+        'prevClass' => '',
+        'nextClass' => '',
+    ]); ?>
 </div>
 
 <?php

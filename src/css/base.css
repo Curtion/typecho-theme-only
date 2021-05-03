@@ -38,4 +38,9 @@
   .comments-author a {
     @apply hover:text-green-400;
   }
+
+  /* 翻页 */
+  .page-nav a {
+    @apply inline-block h-9 w-12 leading-9 rounded-xl cursor-pointer;
+  }
 }
