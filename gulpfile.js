@@ -56,7 +56,7 @@ function injectCSS() {
     .pipe(livereload())
 }
 
-async function buildJS() {
+async function buildJS(cb) {
   // 构建JS
   const bundle = await rollup.rollup({
     input: './src/index.js',
@@ -67,7 +67,7 @@ async function buildJS() {
     format: 'cjs',
     sourcemap: true,
   })
-  livereload()
+  livereload.reload()
 }
 
 function injectJS() {

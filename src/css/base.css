@@ -16,22 +16,22 @@
 
   /* 文章标签 */
   .title-label a:nth-child(1) {
-    @apply bg-red-400 rounded-xl py-1 px-2 text-white text-xs;
+    @apply bg-red-400 rounded-xl py-1 px-2 text-white text-xs mx-1 my-1;
   }
   .title-label a:nth-child(2) {
-    @apply bg-blue-400 rounded-xl py-1 px-2 text-white text-xs;
+    @apply bg-blue-400 rounded-xl py-1 px-2 text-white text-xs mx-1 my-1;
   }
   .title-label a:nth-child(3) {
-    @apply bg-yellow-400 rounded-xl py-1 px-2 text-white text-xs;
+    @apply bg-yellow-400 rounded-xl py-1 px-2 text-white text-xs mx-1 my-1;
   }
   .title-label a:nth-child(4) {
-    @apply bg-indigo-400 rounded-xl py-1 px-2 text-white text-xs;
+    @apply bg-indigo-400 rounded-xl py-1 px-2 text-white text-xs mx-1 my-1;
   }
   .title-label a:nth-child(5) {
-    @apply bg-purple-400 rounded-xl py-1 px-2 text-white text-xs;
+    @apply bg-purple-400 rounded-xl py-1 px-2 text-white text-xs mx-1 my-1;
   }
   .title-label a:nth-child(n + 6) {
-    @apply bg-pink-400 rounded-xl py-1 px-2 text-white text-xs;
+    @apply bg-pink-400 rounded-xl py-1 px-2 text-white text-xs mx-1 my-1;
   }
 
   /* 最新评论作者样式 */

@@ -2,7 +2,7 @@
     exit();
 } ?>
 <nav class="flex-none w-72 h-screen overflow-auto scrollbar-hidden py-2 space-y-3">
-    <div class="bg-white rounded-lg shadow-sm">
+    <div class="bg-white rounded-lg shadow-md">
         <div class="rounded-full h-24 flex items-center justify-center">
             <img src="https://avatar.dawnlab.me/qq/349582053?s=0" alt="头像"
                 class="h-20 w-20 rounded-full border border-solid border-gray-100 shadow-md">
@@ -52,7 +52,7 @@
             <?php endif; ?>
         </ul>
     </div>
-    <div class="bg-white rounded-lg shadow-sm">
+    <div class="bg-white rounded-lg shadow-md">
         <div class="flex justify-center items-center mb-1 h-8 text-xl text-black text-opacity-60 border-b border-green-400">博客统计</div>
         <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
         <ul class="px-2 py-2">
@@ -78,7 +78,7 @@
             </li>
         </ul>
     </div>
-    <div class="bg-white rounded-lg shadow-sm">
+    <div class="bg-white rounded-lg shadow-md">
         <div class="flex justify-center items-center mb-1 h-8 text-xl text-black text-opacity-60 border-b border-green-400">版权信息</div>
         <div class="px-2 py-2">
             <div><span class="flex items-center">© 2013-<?php echo date('Y'); ?> <?php $this->options->title(); ?></span>

@@ -2,7 +2,7 @@
     exit();
 } ?>
 <nav class="flex-none w-72 h-screen overflow-auto scrollbar-hidden py-2 space-y-3">
-    <div class="bg-white rounded-lg shadow-sm">
+    <div class="bg-white rounded-lg shadow-md">
         <div class="py-2 px-2">
             <form class="flex" id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
                 <input type="text" id="s" name="s" class="py-2 px-3 block appearance-none placeholder-red-300 border border-red-400 rounded-md text-gray-700 leading-5 focus:outline-none focus:ring-2 focus:ring-red-200" placeholder="输入关键字搜索" />
@@ -10,7 +10,7 @@
             </form>
         </div>
     </div>
-    <div class="bg-white rounded-lg shadow-sm">
+    <div class="bg-white rounded-lg shadow-md">
         <div class="flex justify-center items-center mb-1 h-8 text-xl text-black text-opacity-60 border-b border-green-400">文章分类</div>
         <div class="py-2 px-2 grid grid-cols-2 gap-4">
             <?php $this->widget('Widget_Metas_Category_List')->to($mates); ?>
@@ -21,7 +21,7 @@
             <?php endwhile; ?>
         </div>
     </div>
-    <div class="bg-white rounded-lg shadow-sm">
+    <div class="bg-white rounded-lg shadow-md">
         <div class="flex justify-center items-center mb-1 h-8 text-xl text-black text-opacity-60 border-b border-green-400">最新评论</div>
         <div class="py-2 px-2">
             <?php
@@ -40,7 +40,7 @@
             ?>
         </div>
     </div>
-    <div class="bg-white rounded-lg shadow-sm">
+    <div class="bg-white rounded-lg shadow-md">
         <div class="flex justify-center items-center mb-1 h-8 text-xl text-black text-opacity-60 border-b border-green-400">标签云</div>
         <div class="py-2 flex flex-wrap">
             <?php $this->widget('Widget_Metas_Tag_Cloud', 'sort=mid&ignoreZeroCount=1&desc=0&limit=30')->to($tags); ?>
@@ -57,7 +57,7 @@
             <?php endif; ?>
         </div>
     </div>
-    <div class="bg-white rounded-lg shadow-sm">
+    <div class="bg-white rounded-lg shadow-md">
         <div class="flex justify-center items-center mb-1 h-8 text-xl text-black text-opacity-60 border-b border-green-400">文章归档</div>
         <div class="py-2">
             <ul>

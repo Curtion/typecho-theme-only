@@ -29,6 +29,6 @@
   <?php $this->header(); ?>
 </head>
 
-<body class="bg-gray-100 ">
+<body class="bg-gray-200 ">
   <!-- content-start -->
   <div class="container mx-auto min-h-screen rounded-xl flex">
