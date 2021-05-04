@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
   height: 5px;
 }
 ::-webkit-scrollbar-thumb {
@@ -13,6 +13,7 @@
   background: #ffffff;
   border-radius: 15px;
   box-shadow: inset 7px 10px 12px #f0f0f0;
+  margin-top: 0.5rem;
 }
 
 /* 隐藏滚动条 */

@@ -1,5 +1,7 @@
 @import url('./font-awesome-4.7.0/css/font-awesome.min.css');
 @import url('./customize.css');
+@import url('./markdown/markdown.css');
+@import url('./prism/prism.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

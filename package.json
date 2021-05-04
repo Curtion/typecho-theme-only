@@ -35,5 +35,6 @@
     "rollup-plugin-terser": "^7.0.2",
     "tailwindcss": "^2.1.2",
     "uglify": "^0.1.5"
-  }
+  },
+  "dependencies": {}
 }

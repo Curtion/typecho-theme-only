@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) {
     exit();
 } ?>
-<nav class="flex-none w-72 h-screen overflow-auto scrollbar-hidden py-2 space-y-3">
+<nav class="flex-none w-72 h-screen overflow-auto scrollbar-hidden py-2 space-y-3 pr-2">
     <div class="bg-white rounded-lg shadow-md">
         <div class="rounded-full h-24 flex items-center justify-center">
             <img src="https://avatar.dawnlab.me/qq/349582053?s=0" alt="头像"

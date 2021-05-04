@@ -15,12 +15,12 @@ $this->need('header.php');
 $this->need('left.php');
 ?>
 
-<div class="flex-1 px-4 py-2 overflow-auto h-screen">
+<div class="flex-1 pl-2 pr-1 py-2 overflow-auto h-screen">
     <section class="space-y-3">
         <?php while ($this->next()): ?>
         <div class="bg-white rounded-xl shadow-md">
             <a href="<?php $this->permalink(); ?>" class="black">
-                <div class=""> 
+                <div>
                     <?php if ($this->fields->Cover) { ?>
                         <img src="<?php echo $this->fields->Cover; ?>" class="w-full h-80 rounded-t-xl object-cover border-b-2">
                     <?php } else { ?>
