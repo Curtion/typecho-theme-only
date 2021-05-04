@@ -32,7 +32,7 @@ function buildCSS() {
   let tailwindcss = require('tailwindcss')
   return gulp
     .src(['./src/css/base.css'])
-    .pipe(postcss([tailwindcss('./tailwind.config.js'), require('autoprefixer'), require('postcss-import')]))
+    .pipe(postcss([tailwindcss('./tailwind.config.js'), require('postcss-import')], require('autoprefixer')))
     .pipe(csso())
     .pipe(gulp.dest('./src/dist/css/'))
     .pipe(livereload())

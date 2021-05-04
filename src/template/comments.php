@@ -132,3 +132,5 @@ $comments->alt(' comment-odd', ' comment-even');
     <?php endif; ?>
 </div><!-- .comment -->
 
+<!-- 防止tailwindCSS把typecho中的class清除掉 -->
+<div class="comment-list comment-body" style="display: none"></div>
