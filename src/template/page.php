@@ -27,7 +27,7 @@ $this->need('left.php');
                 <?php $this->category(','); ?>
                 <?php $this->tags(' ', true); ?>
             </div>
-            <article class="px-3 pt-2 pb-3 markdown-body prose prose-sm sm:prose lg:prose-lg xl:prose-xl prose-indigo mx-auto">
+            <article class="px-3 pt-2 pb-3 max-w-none typo line-numbers">
                 <?php $this->content(); ?>
             </article>
             <div id="comments">

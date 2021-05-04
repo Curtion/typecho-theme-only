@@ -11,19 +11,19 @@
             <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
             <div class="flex flex-col items-center">
                 <span class="text-lg text-black text-opacity-80">文章</span>
-                <span class="text-base text-black text-opacity-20">
+                <span class="text-base text-black text-opacity-40">
                     <?php $stat->publishedPostsNum(); ?>
                 </span>
             </div>
             <div class="flex flex-col items-center">
                 <span class="text-lg  text-black text-opacity-80">标签</span>
-                <span class="text-base text-black text-opacity-20">
+                <span class="text-base text-black text-opacity-40">
                     <?php echo tagsNum(); ?>
                 </span>
             </div>
             <div class="flex flex-col items-center">
                 <span class="text-lg text-black text-opacity-80">分类</span>
-                <span class="text-base text-black text-opacity-20">
+                <span class="text-base text-black text-opacity-40">
                     <?php $stat->categoriesNum(); ?>
                 </span>
             </div>
