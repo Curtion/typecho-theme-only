@@ -30,6 +30,9 @@ $this->need('left.php');
             <article class="px-3 pt-2 pb-3 markdown-body prose prose-sm sm:prose lg:prose-lg xl:prose-xl prose-indigo mx-auto">
                 <?php $this->content(); ?>
             </article>
+            <div id="comments">
+                <?php $this->need('comments.php'); ?>
+            </div>
         </div>
     </section>
 </div>

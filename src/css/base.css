@@ -45,4 +45,24 @@
   .page-nav a {
     @apply inline-block h-9 w-12 leading-9 rounded-xl cursor-pointer;
   }
+
+  /* 评论相关 */
+  .comment-list .comment-body {
+    @apply px-2 py-1.5;
+  }
+  .comment-list .comment-body .comment-list .comment-body {
+    @apply px-0 py-0;
+  }
+  .comment-parent {
+    @apply border-b;
+  }
+  .comment-list .comment-children {
+    @apply pl-16;
+  }
+  .comment-list .comment-children .comment-list .comment-children {
+    @apply pl-0;
+  }
+  .comment-content .at {
+    @apply text-black text-opacity-20 text-lg;
+  }
 }

@@ -5,7 +5,7 @@
     <div class="bg-white rounded-lg shadow-md">
         <div class="py-2 px-2">
             <form class="flex" id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
-                <input type="text" id="s" name="s" class="py-2 px-3 block appearance-none placeholder-red-300 border border-red-400 rounded-md text-gray-700 leading-5 focus:outline-none focus:ring-2 focus:ring-red-200" placeholder="输入关键字搜索" />
+                <input type="text" id="s" name="s" class="py-1 px-3 block appearance-none placeholder-red-300 border border-red-400 rounded-md text-gray-700 leading-5 focus:outline-none focus:ring-2 focus:ring-red-200" placeholder="输入关键字搜索" />
                 <button type="submit" class="w-full bg-red-400 hover:bg-red-500 ml-2 rounded-md shadow-md text-white text-opacity-75 tracking-wider">搜索</button>
             </form>
         </div>
