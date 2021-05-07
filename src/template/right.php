@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) {
     exit();
 } ?>
-<nav class="flex-none w-72 h-screen overflow-auto scrollbar-hidden py-2 space-y-3 pl-3">
+<nav class="hidden lg:block flex-none w-72 h-screen overflow-auto scrollbar-hidden py-2 space-y-3 pl-3">
     <div class="bg-white rounded-lg shadow-md">
         <div class="py-2 px-2">
             <form class="flex" id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
