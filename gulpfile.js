@@ -67,7 +67,7 @@ async function buildJS(cb) {
   await bundle.write({
     file: './src/dist/js/index.js',
     format: 'cjs',
-    sourcemap: true,
+    sourcemap: process.env.NODE_ENV === 'production' ? false : true,
   })
   livereload.reload()
 }

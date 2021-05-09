@@ -1,6 +1,6 @@
 # 说明
 
-此项目既是脚手架，也是 only 主题，如果想要使用主题请在 releases 中下载。
+此项目既是脚手架，也是 only 主题，如果想要使用主题请在 releases 中下载(版本可能不是最新，最好请自行 build 源码)。
 
 项目使用 TailWindCSS 进行页面样式开发，脚手架是是 gulp+rollup+babel，建议使用 VSCode 进行开发，并且安装[Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) 扩展.
 gulp 已经配置了 livereload 服务，同时安装 [livereload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=zh-CN) 浏览器扩展可以实现浏览器自动刷新。
