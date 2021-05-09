@@ -6,7 +6,7 @@ $this->need('header.php');
 $this->need('left.php');
 ?>
 
-<div class="flex-1 pl-2 pr-1 py-2 overflow-auto h-screen">
+<div class="flex-1 pl-2 pr-1 py-2 overflow-auto h-screen" id="scrollWrapper">
     <section class="space-y-3">
         <div class="bg-white rounded-xl shadow-md">
             <a href="<?php $this->permalink(); ?>" class="black">
@@ -27,7 +27,7 @@ $this->need('left.php');
                 <?php $this->category(','); ?>
                 <?php $this->tags(' ', true); ?>
             </div>
-            <article class="px-3 pt-2 pb-3 max-w-none typo line-numbers">
+            <article class="px-3 pt-2 pb-3 max-w-none typo line-numbers" id="article">
                 <?php $this->content(); ?>
             </article>
             <div id="comments">
@@ -38,7 +38,7 @@ $this->need('left.php');
 </div>
 
 <?php
-$this->need('right.php');
+$this->need('toc.php');
 $this->need('footer.php');
 
 

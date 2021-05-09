@@ -7,6 +7,8 @@ const csso = require('gulp-csso')
 const rollup = require('rollup')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const commonjs = require('@rollup/plugin-commonjs')
+const json = require('@rollup/plugin-json')
+const builtins = require('rollup-plugin-node-builtins')
 const { terser } = require('rollup-plugin-terser')
 const { babel } = require('@rollup/plugin-babel')
 const livereload = require('gulp-livereload')
@@ -60,7 +62,7 @@ async function buildJS(cb) {
   // 构建JS
   const bundle = await rollup.rollup({
     input: './src/index.js',
-    plugins: [babel({ babelHelpers: 'runtime', exclude: 'node_modules/**' }), commonjs(), nodeResolve(), terser()],
+    plugins: [json(), builtins(), nodeResolve(), commonjs(), babel({ babelHelpers: 'runtime', exclude: 'node_modules/**' }), terser()],
   })
   await bundle.write({
     file: './src/dist/js/index.js',

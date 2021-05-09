@@ -27,7 +27,7 @@ $this->need('left.php');
                 <?php $this->category(','); ?>
                 <?php $this->tags(' ', true); ?>
             </div>
-            <article class="px-3 pt-2 pb-3 max-w-none typo line-numbers">
+            <article class="px-3 pt-2 pb-3 max-w-none typo line-numbers" id="article">
                 <?php $this->content(); ?>
             </article>
             <div id="comments">
@@ -40,6 +40,5 @@ $this->need('left.php');
 <?php
 $this->need('right.php');
 $this->need('footer.php');
-
 
 ?>
