@@ -119,7 +119,6 @@ export default function (opts) {
    * 普通模式下滚动事件
    */
   function simpleScrollHandler(el) {
-    console.log(123)
     let scrollToEl = null
     for (let i = allCatalogs.length - 1; i >= 0; i--) {
       if (allCatalogs[i].offsetTop <= $scroll_wrap.scrollTop) {
