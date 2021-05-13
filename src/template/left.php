@@ -70,7 +70,7 @@
             </li>
             <li class="h-8 flex items-center justify-between px-6">
                 <span>加载耗时</span>
-                <span class="font-semibold bg-green-200 px-2 rounded-full"><?php echo timer_stop(); ?></span>
+                <span class="font-semibold bg-green-200 px-2 rounded-full loadTime hidden"><?php echo timer_stop(); ?></span>
             </li>
             <li class="h-8 flex items-center justify-between px-6">
                 <span>最后更新</span>
