@@ -1,5 +1,5 @@
 import Catalog from '../progress-catalog/index.js'
-export function render(toc) {
+export function render() {
   new Catalog({
     contentEl: 'article',
     catalogEl: 'toc',
