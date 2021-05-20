@@ -474,6 +474,7 @@ caption {
 /* Responsive images */
 .typo img {
   max-width: 50%;
+  cursor: zoom-in;
 }
 
 /* 代码片段 */

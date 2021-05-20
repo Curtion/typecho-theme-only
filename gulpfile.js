@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-const { series, watch } = require('gulp')
+const { series, watch, parallel } = require('gulp')
 const inject = require('gulp-inject')
 const clean = require('gulp-clean')
 const postcss = require('gulp-postcss')
@@ -95,13 +95,13 @@ function copyPHP() {
   return gulp.src(['./src/template/*', '!./src/template/header.php', '!./src/template/footer.php']).pipe(gulp.dest('./src/dist')).pipe(livereload())
 }
 
-function copyFont() {
-  // 拷贝字体文件
+// 拷贝其它文件
+function awesome() {
   return gulp.src(['./src/css/font-awesome-4.7.0/fonts/**/*']).pipe(gulp.dest('./src/dist/fonts'))
 }
 
 if (process.env.NODE_ENV === 'production') {
-  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyPHP, copyFont)
+  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyPHP, parallel(awesome))
 } else if (process.env.NODE_ENV === 'development') {
-  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyPHP, copyFont, dev)
+  exports.default = series(cleanDist, buildCSS, injectCSS, buildJS, injectJS, copyPHP, parallel(awesome), dev)
 }
